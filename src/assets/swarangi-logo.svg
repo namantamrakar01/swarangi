@@ -1,0 +1,14 @@
+<svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Devanagari Script -->
+  <text x="150" y="45" font-family="Georgia, serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#3B1F0A">
+    स्वरंगी
+  </text>
+  
+  <!-- English Text -->
+  <text x="150" y="85" font-family="'Cormorant Garamond', serif" font-size="24" font-weight="700" text-anchor="middle" fill="#E8A020" letter-spacing="3">
+    SWARANGI
+  </text>
+  
+  <!-- Decorative line -->
+  <line x1="50" y1="95" x2="250" y2="95" stroke="#E8A020" stroke-width="2"/>
+</svg>
