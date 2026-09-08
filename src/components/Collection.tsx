@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import {
   Box,
-  Button,
   Container,
   IconButton,
   Typography,
@@ -89,19 +88,6 @@ const Collection = () => {
     setFlippedCards((prev) =>
       prev.includes(id) ? prev.filter((cardId) => cardId !== id) : [...prev, id]
     )
-  }
-
-  const handleInquire = (instrumentName: string, e: React.MouseEvent) => {
-    e.stopPropagation()
-    const contactSection = document.getElementById('contact')
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' })
-      const textarea = document.querySelector('textarea[name="message"]') as HTMLTextAreaElement | null
-      if (textarea) {
-        textarea.value = `Hello! I am interested in inquiring about the handcrafted "${instrumentName}" miniature piece.`
-        textarea.dispatchEvent(new Event('input', { bubbles: true }))
-      }
-    }
   }
 
   const filteredInstruments = instruments.filter((item) => {
