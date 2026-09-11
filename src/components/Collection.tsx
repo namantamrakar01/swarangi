@@ -32,7 +32,7 @@ const instruments: InstrumentItem[] = [
     description:
       'Individually articulated miniature keys, delicate bellow folds, and brass accents — honoring the instrument that anchors semi-classical and devotional vocal heritage.',
     materials: 'Seasoned wood, brass fittings, miniature pleated bellows',
-    dimensions: '5.2" × 3.6" × 3.0" • 1:6 Scale',
+    dimensions: 'Approx. 6 inches',
     image:
       'https://res.cloudinary.com/dqn2dna4p/image/upload/f_auto,q_auto,w_800/v1788626154/harmonium_final_gagabk.jpg',
   },
@@ -46,21 +46,21 @@ const instruments: InstrumentItem[] = [
     description:
       'The foundational drone of every classical raag. Sculpted with authentic neck proportions, hand-detailed tumba motifs, and micro-acoustic strings tuned to eternity.',
     materials: 'Carved timber, hand-painted gourd, brass bridge & frets',
-    dimensions: '8.5" length • 1:6 Scale',
+    dimensions: 'Approx. 6 inches',
     image:
       'https://res.cloudinary.com/dqn2dna4p/image/upload/f_auto,q_auto,w_800/v1782319296/Tanpoora1_hboikz.jpg',
   },
   {
     id: 5,
-    name: 'Sitar',
-    hindiName: 'सितार',
+    name: 'Guitar',
+    hindiName: 'गिटार',
     category: 'Tat Vadya',
     categoryEn: 'Plucked Strings',
-    tagline: 'Intricate stringed soul with resonant, shimmering overtones.',
+    tagline: 'Acoustic warmth and timeless chords sculpted in miniature elegance.',
     description:
-      'Complete with arched brass frets, sympathetic string bridges, and ornate carved detailing, celebrating the majestic lineage of Maihar and Senia gharanas.',
-    materials: 'Polished hardwood, delicate brass frets, precision strings',
-    dimensions: '8.2" length • 1:6 Scale',
+      'Handcrafted with intricate soundhole detailing, contoured bridge, authentic frets, and polished acoustic body — bringing the soulful resonance of strings into a pocket-sized masterpiece.',
+    materials: 'Seasoned hardwood, fine brass frets, precision micro-strings',
+    dimensions: 'Approx. 6 inches',
     image:
       'https://res.cloudinary.com/dqn2dna4p/image/upload/f_auto,q_auto,w_800/v1784778964/swarangi/swarangi-guitar.jpg',
   },
@@ -74,7 +74,7 @@ const instruments: InstrumentItem[] = [
     description:
       'Features a resonant Bayan and calibrated Dayan, complete with miniature syahi tuning paste circles and woven leather straps true to traditional riwaaz.',
     materials: 'Turned hardwood, bell alloy bayan, micro-tension straps',
-    dimensions: '3.8" × 4.2" • 1:6 Scale',
+    dimensions: 'Approx. 6 inches',
     image:
       'https://res.cloudinary.com/dqn2dna4p/image/upload/f_auto,q_auto,w_800/v1788624547/IMG20260531170346_uslohz.jpg',
   },
@@ -268,7 +268,7 @@ const Collection = () => {
                       </IconButton>
                     </Box>
 
-                    {/* Bottom Vignette — Instrument Name Only */}
+                    {/* Bottom Vignette — Instrument Name & Size */}
                     <Box
                       sx={{
                         position: 'absolute',
@@ -279,6 +279,7 @@ const Collection = () => {
                           'linear-gradient(to top, rgba(35, 16, 5, 0.95) 0%, rgba(35, 16, 5, 0.72) 50%, transparent 100%)',
                         padding: { xs: '30px 16px 20px', md: '38px 20px 24px' },
                         zIndex: 2,
+                        textAlign: 'center',
                       }}
                     >
                       <Typography
@@ -293,6 +294,19 @@ const Collection = () => {
                         }}
                       >
                         {instrument.name}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontFamily: "'Jost', sans-serif",
+                          fontSize: { xs: '12px', md: '13px' },
+                          color: '#E8A020',
+                          fontWeight: 500,
+                          textAlign: 'center',
+                          marginTop: '6px',
+                          letterSpacing: '0.4px',
+                        }}
+                      >
+                        Size: {instrument.dimensions}
                       </Typography>
                     </Box>
                   </Box>
@@ -345,7 +359,6 @@ const Collection = () => {
 
                     {/* Name (Hindi + English) → Size → Description */}
                     <Box sx={{ textAlign: 'center' }}>
-                      
                       <Typography
                         sx={{
                           fontFamily: "'Cormorant Garamond', serif",
@@ -353,7 +366,7 @@ const Collection = () => {
                           fontSize: { xs: '28px', md: '30px' },
                           color: '#FFFFFF',
                           lineHeight: 1.2,
-                          marginBottom: '12px',
+                          marginBottom: '8px',
                         }}
                       >
                         {instrument.name}
@@ -366,12 +379,36 @@ const Collection = () => {
                           fontSize: { xs: '20px', md: '24px' },
                           color: '#FFFFFF',
                           lineHeight: 1.15,
-                          marginBottom: '4px',
+                          marginBottom: '10px',
                         }}
                       >
                         {instrument.hindiName}
                       </Typography>
 
+                      {/* Size Badge */}
+                      <Box
+                        sx={{
+                          display: 'inline-block',
+                          backgroundColor: 'rgba(255, 255, 255, 0.16)',
+                          borderRadius: '20px',
+                          px: 2,
+                          py: 0.5,
+                          marginBottom: '14px',
+                          border: '1px solid rgba(255, 255, 255, 0.3)',
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontFamily: "'Jost', sans-serif",
+                            fontSize: '12px',
+                            fontWeight: 500,
+                            color: '#FFFFFF',
+                            letterSpacing: '0.4px',
+                          }}
+                        >
+                          Size: {instrument.dimensions}
+                        </Typography>
+                      </Box>
 
                       <Box
                         sx={{
