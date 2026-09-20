@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import {
   Box,
+  Button,
   Container,
   IconButton,
   Typography,
 } from '@mui/material'
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid'
 import RestartAltIcon from '@mui/icons-material/RestartAlt'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import { SOCIAL_LINKS } from '../config/social'
 
 interface InstrumentItem {
   id: number
@@ -67,7 +70,7 @@ const instruments: InstrumentItem[] = [
   {
     id: 1,
     name: 'Tabla',
-    hindiName: 'तबला जोड़ी',
+    hindiName: 'तबला',
     category: 'Avanaddha Vadya',
     categoryEn: 'Rhythmic Percussion',
     tagline: 'Two hearts, one rhythm — a dialogue of devotion and taal.',
@@ -431,15 +434,44 @@ const Collection = () => {
                       </Typography>
                     </Box>
 
-                    {/* Action Footer */}
-                    <Box>
+                    {/* Action Button & Footer */}
+                    <Box sx={{ textAlign: 'center', mt: 1 }}>
+                      <Button
+                        component="a"
+                        href={SOCIAL_LINKS.instagramDmUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        variant="contained"
+                        startIcon={<InstagramIcon sx={{ fontSize: 18, color: '#3B1F0A' }} />}
+                        sx={{
+                          backgroundColor: '#FAF3E0',
+                          color: '#3B1F0A',
+                          fontFamily: "'Jost', sans-serif",
+                          fontWeight: 600,
+                          fontSize: '13px',
+                          textTransform: 'none',
+                          borderRadius: '24px',
+                          px: 2.5,
+                          py: 0.8,
+                          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+                          transition: 'all 0.25s ease',
+                          '&:hover': {
+                            backgroundColor: '#FFFFFF',
+                            transform: 'translateY(-2px)',
+                            boxShadow: '0 6px 16px rgba(0, 0, 0, 0.3)',
+                          },
+                        }}
+                      >
+                        Order on Instagram DM
+                      </Button>
                       <Typography
                         sx={{
                           textAlign: 'center',
                           fontFamily: "'Jost', sans-serif",
                           fontSize: '11px',
-                          color: 'rgba(255, 255, 255, 0.75)',
-                          marginTop: '8px',
+                          color: 'rgba(255, 255, 255, 0.8)',
+                          marginTop: '10px',
                         }}
                       >
                         Tap card to return to gallery view

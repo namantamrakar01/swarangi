@@ -5,6 +5,8 @@ import PhoneIcon from '@mui/icons-material/Phone'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import PersonIcon from '@mui/icons-material/Person'
 import MessageIcon from '@mui/icons-material/Message'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import { SOCIAL_LINKS } from '../config/social'
 import { useState } from 'react'
 
 const Contact = () => {
@@ -85,7 +87,7 @@ const Contact = () => {
               fontWeight: 700,
             }}
           >
-            Get in Touch
+            Get in Touch & Order
           </Typography>
           <Typography
             variant="body1"
@@ -96,12 +98,67 @@ const Contact = () => {
               marginTop: '16px',
             }}
           >
-            Have questions? We'd love to hear from you.
+            Have questions or want to place an order? Connect with us directly.
           </Typography>
         </Box>
 
         <Grid container spacing={4} sx={{ marginBottom: '48px' }}>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+            <Box sx={{ textAlign: 'center' }}>
+              <InstagramIcon
+                sx={{
+                  color: '#E8A020',
+                  fontSize: '32px',
+                  margin: '0 auto 16px',
+                  display: 'block',
+                }}
+              />
+              <Typography
+                variant="h6"
+                sx={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  color: '#FAF3E0',
+                  fontSize: '20px',
+                  marginBottom: '12px',
+                  fontWeight: 700,
+                }}
+              >
+                Instagram
+              </Typography>
+              <Typography
+                component="a"
+                href={SOCIAL_LINKS.instagramDmUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  fontFamily: "'Jost', sans-serif",
+                  color: '#E8A020',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  transition: 'color 0.3s ease',
+                  display: 'block',
+                  '&:hover': {
+                    color: '#FFB834',
+                    textDecoration: 'underline',
+                  },
+                }}
+              >
+                {SOCIAL_LINKS.instagramHandle}
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "'Jost', sans-serif",
+                  color: 'rgba(250, 243, 224, 0.7)',
+                  fontSize: '13px',
+                  marginTop: '4px',
+                }}
+              >
+                DM us to place order
+              </Typography>
+            </Box>
+          </Grid>
+
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Box sx={{ textAlign: 'center' }}>
               <MailIcon
                 sx={{
@@ -141,7 +198,7 @@ const Contact = () => {
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Box sx={{ textAlign: 'center' }}>
               <PhoneIcon
                 sx={{
@@ -181,7 +238,7 @@ const Contact = () => {
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Box sx={{ textAlign: 'center' }}>
               <LocationOnIcon
                 sx={{

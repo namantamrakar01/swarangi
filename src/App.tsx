@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Collection from './components/Collection'
 import Contact from './components/Contact'
+import FloatingInstagramButton from './components/FloatingInstagramButton'
 
 function App() {
   return (
@@ -14,8 +15,10 @@ function App() {
       <About />
       <Collection />
       <Contact />
+      <FloatingInstagramButton />
     </>
   )
 }
 
 export default App
+

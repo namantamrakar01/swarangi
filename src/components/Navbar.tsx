@@ -1,7 +1,22 @@
 import { useState } from 'react'
-import { AppBar, Toolbar, Box, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, useMediaQuery, useTheme } from '@mui/material'
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import { SOCIAL_LINKS } from '../config/social'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,32 +35,129 @@ const Navbar = () => {
   }
 
   const drawerContent = (
-    <List>
-      {navLinks.map((link) => (
-        <ListItem key={link.name} disablePadding>
-          <ListItemButton
-            href={link.href}
-            onClick={() => setIsOpen(false)}
-            sx={{ textAlign: 'center' }}
-          >
-            <ListItemText primary={link.name} />
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
+    <Box sx={{ pb: 3, pt: 1 }}>
+      <List>
+        {navLinks.map((link) => (
+          <ListItem key={link.name} disablePadding>
+            <ListItemButton
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              sx={{ textAlign: 'center', py: 1.5 }}
+            >
+              <ListItemText
+                primary={link.name}
+                primaryTypographyProps={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontWeight: 600,
+                  fontSize: '17px',
+                  color: '#3B1F0A',
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Box sx={{ px: 3, pt: 1.5, textAlign: 'center' }}>
+        <Button
+          fullWidth
+          component="a"
+          href={SOCIAL_LINKS.instagramDmUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="contained"
+          startIcon={<InstagramIcon />}
+          sx={{
+            backgroundColor: '#E8A020',
+            color: '#2A1507',
+            fontFamily: "'Jost', sans-serif",
+            fontWeight: 600,
+            fontSize: '15px',
+            textTransform: 'none',
+            borderRadius: '24px',
+            py: 1.2,
+            boxShadow: '0 4px 14px rgba(232, 160, 32, 0.35)',
+            '&:hover': {
+              backgroundColor: '#D18A12',
+            },
+          }}
+        >
+          Order on Instagram DM
+        </Button>
+      </Box>
+    </Box>
   )
 
   return (
     <AppBar
       sx={{
-        backgroundColor: 'rgba(245, 242, 238, 0.95)',
+        backgroundColor: 'rgba(245, 242, 238, 0.96)',
         backdropFilter: 'blur(10px)',
         borderBottom: '1px solid rgba(232, 160, 32, 0.2)',
         boxShadow: 'none',
       }}
     >
+      {/* Upfront Announcement Bar */}
+      <Box
+        sx={{
+          backgroundColor: '#2A1507',
+          color: '#FAF3E0',
+          py: { xs: 0.85, md: 0.9 },
+          px: { xs: 1.5, sm: 2 },
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: { xs: 1, sm: 1.5 },
+          borderBottom: '1px solid rgba(232, 160, 32, 0.3)',
+          textAlign: 'center',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Box
+          component="span"
+          sx={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 0.75,
+            fontSize: { xs: '12px', sm: '13px' },
+            fontFamily: "'Jost', sans-serif",
+            letterSpacing: '0.3px',
+            color: 'rgba(250, 243, 224, 0.95)',
+          }}
+        >
+          <InstagramIcon sx={{ fontSize: 16, color: '#E8A020' }} />
+          <span>Handcrafted made-to-order • <strong>Order by DM on Instagram</strong></span>
+        </Box>
+        <Box
+          component="a"
+          href={SOCIAL_LINKS.instagramDmUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{
+            color: '#E8A020',
+            fontWeight: 600,
+            fontSize: { xs: '12px', sm: '13px' },
+            fontFamily: "'Jost', sans-serif",
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            padding: '2px 9px',
+            borderRadius: '12px',
+            backgroundColor: 'rgba(232, 160, 32, 0.15)',
+            border: '1px solid rgba(232, 160, 32, 0.4)',
+            transition: 'all 0.25s ease',
+            '&:hover': {
+              backgroundColor: '#E8A020',
+              color: '#2A1507',
+              borderColor: '#E8A020',
+            },
+          }}
+        >
+          DM {SOCIAL_LINKS.instagramHandle} ↗
+        </Box>
+      </Box>
+
       <Toolbar
-        className='w-100'
+        className="w-100"
         sx={{
           width: '100%',
           margin: '0 auto',
@@ -53,7 +165,7 @@ const Navbar = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           height: { xs: '75px', md: '90px' },
-          px: { xs: 2, md: 3 },
+          px: { xs: 2, md: 4 },
         }}
       >
         <Box
@@ -80,8 +192,8 @@ const Navbar = () => {
         </Box>
 
         {!isMobile && (
-          <Box sx={{ display: 'flex', gap: 4 }}>
-            {navLinks.map((link, index) => (
+          <Box sx={{ display: 'flex', gap: 3.5, alignItems: 'center' }}>
+            {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -93,7 +205,6 @@ const Navbar = () => {
                   fontFamily: "'Jost', sans-serif",
                   transition: 'color 0.3s ease',
                   cursor: 'pointer',
-                  marginRight: index === navLinks.length - 1 ? '100px' : '0',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#E8A020')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(59, 31, 10, 0.85)')}
@@ -125,7 +236,9 @@ const Navbar = () => {
               sx={{
                 '& .MuiDrawer-paper': {
                   backgroundColor: '#FAF3E0',
-                  marginTop: '75px',
+                  marginTop: { xs: '110px', sm: '112px' },
+                  boxShadow: '0 8px 24px rgba(59, 31, 10, 0.2)',
+                  borderBottom: '2px solid #E8A020',
                 },
               }}
             >
