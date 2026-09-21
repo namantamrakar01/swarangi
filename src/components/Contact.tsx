@@ -182,7 +182,7 @@ const Contact = () => {
               </Typography>
               <Typography
                 component="a"
-                href="mailto:info@swarangi.com"
+                href="mailto:info@swarangi.in"
                 sx={{
                   fontFamily: "'Jost', sans-serif",
                   color: 'rgba(250, 243, 224, 0.8)',
@@ -193,7 +193,7 @@ const Contact = () => {
                   },
                 }}
               >
-                info@swarangi.com
+                info@swarangi.in
               </Typography>
             </Box>
           </Grid>
